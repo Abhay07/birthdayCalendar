@@ -50,7 +50,7 @@ birthdayCalender.handlers = new function(){
 		};
 
 
-		//convert Birthyears in JSON to Input Years
+		//convert JSON data by adding Birth Day key
 		jsonData = jsonData.map(function(i){
 			var updatedYear = i.birthday.split('/');
 			updatedYear[2]=year;
@@ -58,6 +58,7 @@ birthdayCalender.handlers = new function(){
 			return {"name":i.name,"birthday":(new Date(updatedYear).getDay()),"birthdate":i.birthday}
 		});		
 
+		//sort JSON data by Birth Day
 		jsonData.sort(function(a,b){
 			return a.birthday - b.birthday
 		});
@@ -65,7 +66,9 @@ birthdayCalender.handlers = new function(){
 		var i = 0;
 
 		var sortedBdayArray = [];
-
+		
+		
+		//Convert JSON Data into sub arrays grouped by common Birth Day
 		while(i<jsonData.length){
 			var weekDaybdayArray = [];
 			while ( (i<jsonData.length-1) &&(jsonData[i].birthday)==(jsonData[i+1].birthday) ){
@@ -77,6 +80,7 @@ birthdayCalender.handlers = new function(){
 			i++;
 		}
 
+		//sort the sub array by age
 		sortedBdayArray = sortedBdayArray.map(function(i){
 			return i.sort(function(a,b){
 				return (new Date(b.birthdate)) - (new Date(a.birthdate));
