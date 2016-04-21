@@ -1,0 +1,101 @@
+body{
+	margin:0;
+	font-family: 'Lato',Arial;
+	background-color:#EAF0F2;
+}
+
+.container{
+	padding:40px;
+	color:#5A6A77;
+}
+
+.text-center{
+	text-align:center;
+}
+
+h1{
+	font-weight:300;
+}
+
+
+.clearfix{
+	display:block;
+	content:'';
+	clear:both;
+}
+
+
+.card{
+	width:164px;
+	background-color:white;
+	float:left;
+	margin:20px 8px;
+}
+
+
+.card-header{
+	background-color:#AB9EEE;
+	height:40px;
+	line-height:40px;
+	color:#E0DBF8;
+	text-align:right;
+	padding:0px 10px;
+	border-radius:5px 5px 0px 0px;
+}
+
+.card-body{
+	height:160px;
+	background-color:white;
+	border:2px solid #CCD1D3;
+}
+
+#input-json-container{
+	width:80%;
+	min-height:250px;
+}
+
+.section{
+	box-sizing:border-box;
+	width:50%;
+	float:left;
+	padding:10px;
+}
+
+
+.year-label{
+	font-size:20px;
+}
+
+#year-input{
+	width:250px;
+	padding:15px;
+}
+
+#update-btn{
+	background-color:#188EE8;
+	color:#CFE7FC;
+	padding:20px 40px;
+	border:none;
+	font-size:17px;
+	border-radius:5px;
+	box-shadow: 0px 2px 2px #085EA0;
+}
+
+#update-btn:hover{
+	cursor:pointer;
+	background-color:#167DCB;
+}
+
+#error-text{
+	margin-top:10px;
+	color:red;
+}
+
+.bday{
+	text-align:center;
+	float:left;
+}
+
+.personName{
+	color:white;
+}
