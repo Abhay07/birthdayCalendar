@@ -55,11 +55,11 @@ birthdayCalender.handlers = new function(){
 			var updatedYear = i.birthday.split('/');
 			updatedYear[2]=year;
 			updatedYear = updatedYear.join('/');
-			return {"name":i.name,"birthday":updatedYear,"birthdate":i.birthday}
+			return {"name":i.name,"birthday":(new Date(updatedYear).getDay()),"birthdate":i.birthday}
 		});		
 
 		jsonData.sort(function(a,b){
-			return (new Date(a.birthday)).getDay() - (new Date(b.birthday)).getDay();
+			return a.birthday - b.birthday
 		});
 
 		var i = 0;
@@ -68,7 +68,7 @@ birthdayCalender.handlers = new function(){
 
 		while(i<jsonData.length){
 			var weekDaybdayArray = [];
-			while ( (i<jsonData.length-1) &&(new Date(jsonData[i].birthday).getDay())==(new Date(jsonData[i+1].birthday).getDay()) ){
+			while ( (i<jsonData.length-1) &&(jsonData[i].birthday)==(jsonData[i+1].birthday) ){
 				weekDaybdayArray.push(jsonData[i]);
 				i++;
 			}
@@ -95,7 +95,7 @@ birthdayCalender.handlers = new function(){
 		}
 
 		var cards = document.querySelectorAll('.card .card-body');
-		 
+
 		for(var i=0;i<cards.length;i++){
 			cards[i].innerHTML="";
 		}
@@ -103,7 +103,7 @@ birthdayCalender.handlers = new function(){
 		data.forEach(
 			function(i,index,arr){
 				var sizeOfBoxes = 160/Math.ceil(Math.sqrt(i.length));
-				var cardBody = document.getElementsByClassName('card')[(index-1<0?6:index-1)].children[1];
+				var cardBody = document.querySelectorAll('.card .card-body')[(i[0].birthday-1<0?6:i[0].birthday-1)];
 				cardBody.innerHTML="";
 				i.forEach(function(j,ind,arry){
 					var bdayElem = document.createElement("div");
