@@ -226,4 +226,5 @@ document.addEventListener('DOMContentLoaded',function(){
 	sampleJsonData = JSON.stringify(sampleJsonData);
 	document.getElementById('input-json-container').value=sampleJsonData;
 	document.getElementById('update-btn').addEventListener('click',birthdayCalender.handlers.drawCards);
+	birthdayCalender.handlers.drawCards();
 });
